@@ -1,0 +1,2 @@
+mysql -u root wishlist < create_database.sql 
+mysql -u root wishlist < seed.sql           
