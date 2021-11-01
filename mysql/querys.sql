@@ -27,9 +27,11 @@ LEFT JOIN items ON wishes.item_id = items.id;
 
 -- 3) Get the amount of users without wishlist items
 
-SELECT COUNT(*) FROM users
+SELECT COUNT(*)
+FROM users
 WHERE NOT EXISTS (
-  SELECT * FROM wishes
+  SELECT *
+  FROM wishes
   WHERE wishes.user_id = users.id
 );
 
@@ -45,7 +47,8 @@ SELECT users.name
 FROM users
 INNER JOIN follows ON followed_id = users.id 
 WHERE EXISTS (
-  SELECT * FROM wishes
+  SELECT *
+  FROM wishes
   WHERE wishes.user_id = users.id AND wishes.completed = false
 )
 GROUP BY follows.followed_id
