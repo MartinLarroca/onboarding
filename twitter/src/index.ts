@@ -6,6 +6,8 @@ import users from './seeders/users';
 import tweets from './seeders/tweets';
 import comments from './seeders/comments';
 
+import usersRoutes from './routes/users';
+
 const seed = () => {
 
   Object.entries(users).forEach(([key, value]) => {
@@ -25,15 +27,10 @@ const seed = () => {
 
 };
 
-
-
-
 Database.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
   seed(); // this line goes where because of concurrency, before doing this we need to set up the database
 });
-
-
 
 // initialize configuration from .env file
 
@@ -42,9 +39,8 @@ const port = process.env.PORT;
 const env = process.env.ENV;
 const server = express();
 
-server.get('/', (req, res) => {
-  res.send("Welcome to the server");
-});
+server.use(express.json()); 
+server.use('/users', usersRoutes); 
 
 server.listen(port, () => {
   console.log(`Server listening on port ${port}, current enviroment is: ${env}`);
