@@ -38,6 +38,6 @@ const user = {
   }
 };
 
-User.init(user, { modelName: 'User', sequelize: Database.sequelize });
+User.init(user, { modelName: 'User', tableName: 'users', sequelize: Database.sequelize });
 
 export = User;
