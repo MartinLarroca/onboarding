@@ -22,6 +22,14 @@ const comment = {
   comment: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  user_id: {
+    type: DataTypes.UUID,
+    allowNull: false
+  },
+  tweet_id: {
+    type: DataTypes.INTEGER.UNSIGNED,
+    allowNull: false
   }
 };
 

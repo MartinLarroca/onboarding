@@ -7,6 +7,8 @@ import tweets from './seeders/tweets';
 import comments from './seeders/comments';
 
 import usersRoutes from './routes/users';
+import tweetsRoutes from './routes/tweets';
+import commentsRoutes from './routes/comments';
 
 const seed = () => {
 
@@ -40,7 +42,9 @@ const env = process.env.ENV;
 const server = express();
 
 server.use(express.json()); 
-server.use('/users', usersRoutes); 
+server.use('/users', usersRoutes);
+server.use('/tweets', tweetsRoutes);
+server.use('/comments', commentsRoutes); 
 
 server.listen(port, () => {
   console.log(`Server listening on port ${port}, current enviroment is: ${env}`);
