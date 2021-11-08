@@ -1,3 +1,7 @@
 .DS_Store
 twitter/dist
 twitter/node_modules
+accounts
+apolloQL
+twitterQL/dist
+twitterQL/node_modules
