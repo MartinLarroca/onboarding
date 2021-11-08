@@ -1,12 +1,13 @@
 import { Model, DataTypes } from "sequelize";
 
-import Database from "./index";
+import Database from "../db/config/database";
 
 interface UserAttributes {
   id: string;
   name: string;
   surname: string;
-  email: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 class User extends Model<UserAttributes> implements UserAttributes {
@@ -14,9 +15,11 @@ class User extends Model<UserAttributes> implements UserAttributes {
   name!: string;
   surname!: string;
   email!: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-Database.sequelize.define("user", {
+const user = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -44,6 +47,12 @@ Database.sequelize.define("user", {
     type: DataTypes.DATE,
     allowNull: false,
   },
+};
+
+User.init(user, {
+  modelName: "User",
+  tableName: "users",
+  sequelize: Database.sequelize,
 });
 
-export default User;
+export = User;

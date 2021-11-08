@@ -18,5 +18,3 @@ User.hasMany(models.Comment, { foreignKey: { name: "user_id" } });
 
 Tweet.belongsTo(models.User, { foreignKey: { name: "user_id" } });
 Tweet.hasMany(models.Comment, { foreignKey: { name: "tweet_id" } });
-
-export default Database; // this database after being set up
