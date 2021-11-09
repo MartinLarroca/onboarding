@@ -1,4 +1,4 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -8,6 +8,6 @@ module.exports = {
     password: process.env.DB_PASSWORD, // not defined in .env so it's value is null
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
-    dialect: "mysql",
+    dialect: 'mysql',
   },
 };

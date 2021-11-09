@@ -1,6 +1,6 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataTypes } from 'sequelize';
 
-import Database from "./index";
+import Database from './index';
 
 interface UserAttributes {
   id: string;
@@ -16,7 +16,7 @@ class User extends Model<UserAttributes> implements UserAttributes {
   email!: string;
 }
 
-Database.sequelize.define("user", {
+Database.sequelize.define('user', {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,

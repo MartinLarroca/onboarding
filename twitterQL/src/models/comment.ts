@@ -1,6 +1,6 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataTypes } from 'sequelize';
 
-import Database from "./index";
+import Database from './index';
 
 interface CommentAttributes {
   id: number;
@@ -12,7 +12,7 @@ class Comment extends Model<CommentAttributes> implements CommentAttributes {
   comment!: string;
 }
 
-Database.sequelize.define("comment", {
+Database.sequelize.define('comment', {
   id: {
     type: DataTypes.INTEGER.UNSIGNED,
     autoIncrement: true,
