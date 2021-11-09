@@ -5,11 +5,19 @@ import Database from '../db/config/database';
 interface CommentAttributes {
   id: number;
   comment: string;
+  createdAt: Date;
+  updatedAt: Date;
+  user_id: string;
+  tweet_id: number;
 }
 
 class Comment extends Model<CommentAttributes> implements CommentAttributes {
   id!: number;
   comment!: string;
+  createdAt: Date;
+  updatedAt: Date;
+  user_id: string;
+  tweet_id: number;
 }
 
 const comment = {

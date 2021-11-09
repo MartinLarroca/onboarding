@@ -5,11 +5,17 @@ import Database from '../db/config/database';
 interface TweetAttributes {
   id: number;
   text: string;
+  createdAt: Date;
+  updatedAt: Date;
+  user_id: string;
 }
 
 class Tweet extends Model<TweetAttributes> implements TweetAttributes {
   id!: number;
   text!: string;
+  createdAt: Date;
+  updatedAt: Date;
+  user_id: string;
 }
 
 const tweet = {

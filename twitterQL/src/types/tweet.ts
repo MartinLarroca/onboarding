@@ -7,5 +7,7 @@ export default gql`
     text: String!
     createdAt: Date
     updatedAt: Date
+    user: User
+    comments: [Comment]
   }
 `;

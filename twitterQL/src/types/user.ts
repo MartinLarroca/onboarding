@@ -6,7 +6,9 @@ export default gql`
     name: String!
     surname: String!
     email: String!
-    createdAt: Date
-    updatedAt: Date
+    createdAt: String
+    updatedAt: String
+    comments: [Comment]
+    tweets: [Tweet]
   }
 `;
