@@ -10,4 +10,14 @@ export default gql`
     user: User
     comments: [Comment]
   }
+
+  input CreateTweetInput {
+    user_id: ID!
+    text: String!
+  }
+
+  input UpdateTweetInput {
+    id: ID!
+    text: String!
+  }
 `;
