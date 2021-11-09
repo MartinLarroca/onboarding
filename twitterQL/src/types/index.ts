@@ -1,5 +1,7 @@
-import query from "./query";
-import user from "./user";
-import Date from "../customScalars/dates";
+import query from './query';
+import user from './user';
+import tweet from './tweet';
+import comment from './comment';
+import Date from '../customScalars/dates';
 
-export default [query, user, Date.dateDefiniton];
+export default [query, user, tweet, comment, Date.dateDefiniton];

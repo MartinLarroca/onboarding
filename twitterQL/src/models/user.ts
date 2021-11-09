@@ -1,6 +1,6 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataTypes } from 'sequelize';
 
-import Database from "../db/config/database";
+import Database from '../db/config/database';
 
 interface UserAttributes {
   id: string;
@@ -50,8 +50,8 @@ const user = {
 };
 
 User.init(user, {
-  modelName: "User",
-  tableName: "users",
+  modelName: 'User',
+  tableName: 'users',
   sequelize: Database.sequelize,
 });
 

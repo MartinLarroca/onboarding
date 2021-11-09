@@ -1,18 +1,20 @@
-import User from "../models/user";
+import User from '../models/user';
+import Tweet from '../models/tweet';
+import Comment from '../models/comment';
 
 export default {
   users: async () => {
-    console.log(User);
-    console.log("saassasasasa");
-    try {
-      const users = await User.findAll({ raw: true });
-      users.forEach((user) => {
-        console.log(user.createdAt);
-      });
-      return users;
-    } catch (err) {
-      console.log(err);
-      console.log("Sasdadsdsads");
-    }
+    const users = await User.findAll({ raw: true });
+    return users;
+  },
+
+  tweets: async () => {
+    const tweets = await Tweet.findAll({ raw: true });
+    return tweets;
+  },
+
+  comments: async () => {
+    const comments = await Comment.findAll({ raw: true });
+    return comments;
   },
 };

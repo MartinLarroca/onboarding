@@ -1,6 +1,6 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataTypes } from 'sequelize';
 
-import Database from "../db/config/database";
+import Database from '../db/config/database';
 
 interface CommentAttributes {
   id: number;
@@ -41,6 +41,6 @@ const comment = {
   },
 };
 
-Comment.init(comment, { modelName: "Comment", sequelize: Database.sequelize });
+Comment.init(comment, { modelName: 'Comment', sequelize: Database.sequelize });
 
 export = Comment;

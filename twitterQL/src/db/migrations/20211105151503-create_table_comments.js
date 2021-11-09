@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("comments", {
+    await queryInterface.createTable('comments', {
       id: {
         type: Sequelize.DataTypes.INTEGER.UNSIGNED,
         autoIncrement: true,
@@ -30,6 +30,6 @@ module.exports = {
     });
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable("comments");
+    await queryInterface.dropTable('comments');
   },
 };

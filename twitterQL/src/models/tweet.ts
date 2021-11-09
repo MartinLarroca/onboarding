@@ -1,6 +1,6 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataTypes } from 'sequelize';
 
-import Database from "../db/config/database";
+import Database from '../db/config/database';
 
 interface TweetAttributes {
   id: number;
@@ -37,6 +37,6 @@ const tweet = {
   },
 };
 
-Tweet.init(tweet, { modelName: "Tweet", sequelize: Database.sequelize });
+Tweet.init(tweet, { modelName: 'Tweet', sequelize: Database.sequelize });
 
 export = Tweet;

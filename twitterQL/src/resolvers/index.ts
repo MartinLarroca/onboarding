@@ -1,6 +1,6 @@
-import QueryResolver from "./query";
+import QueryResolver from './query';
 
-import Date from "../customScalars/dates";
+import Date from '../customScalars/dates';
 
 const Resolvers = {
   Query: QueryResolver,

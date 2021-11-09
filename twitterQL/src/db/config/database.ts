@@ -1,6 +1,6 @@
-import { Sequelize } from "sequelize";
+import { Sequelize } from 'sequelize';
 
-const config = require("./config");
+const config = require('./config');
 
 const sequelize = new Sequelize(
   config.development.database,
@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   config.development.password,
   {
     host: config.development.host,
-    dialect: "mysql",
+    dialect: 'mysql',
   }
 );
 
