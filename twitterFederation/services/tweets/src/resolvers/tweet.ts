@@ -1,9 +1,10 @@
 import Tweet from '../models/tweet';
 
 export default {
-  user: async (tweet: Tweet) => {
+  user: async (tweet: Tweet, args: any, context: any) => {
     const result = await Tweet.findByPk(tweet.id, { raw: true });
-    return { __typename: 'User', id: result.user_id };
+    console.log(context);
+    return { __typename: 'User', id: result.user_id, context };
   },
 
   __resolveReference: async ({ id }: { id: string }) => {
