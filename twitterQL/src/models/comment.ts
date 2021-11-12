@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 
-import Database from './index';
+import Database from '../db/config/database';
 
 interface CommentAttributes {
   id: number;
@@ -12,7 +12,7 @@ class Comment extends Model<CommentAttributes> implements CommentAttributes {
   comment!: string;
 }
 
-Database.sequelize.define('comment', {
+const comment = {
   id: {
     type: DataTypes.INTEGER.UNSIGNED,
     autoIncrement: true,
@@ -39,6 +39,8 @@ Database.sequelize.define('comment', {
     type: DataTypes.DATE,
     allowNull: false,
   },
-});
+};
 
-export default Comment;
+Comment.init(comment, { modelName: 'Comment', sequelize: Database.sequelize });
+
+export = Comment;

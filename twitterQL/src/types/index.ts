@@ -1,1 +1,7 @@
-export = { TypeDefinitions: {}};
+import query from './query';
+import user from './user';
+import tweet from './tweet';
+import comment from './comment';
+import Date from '../customScalars/dates';
+
+export default [query, user, tweet, comment, Date.dateDefiniton];

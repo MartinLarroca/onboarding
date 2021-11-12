@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 
-import Database from './index';
+import Database from '../db/config/database';
 
 interface TweetAttributes {
   id: number;
@@ -12,7 +12,7 @@ class Tweet extends Model<TweetAttributes> implements TweetAttributes {
   text!: string;
 }
 
-Database.sequelize.define('tweet', {
+const tweet = {
   id: {
     type: DataTypes.INTEGER.UNSIGNED,
     autoIncrement: true,
@@ -35,6 +35,8 @@ Database.sequelize.define('tweet', {
     type: DataTypes.DATE,
     allowNull: false,
   },
-});
+};
 
-export default Tweet;
+Tweet.init(tweet, { modelName: 'Tweet', sequelize: Database.sequelize });
+
+export = Tweet;
