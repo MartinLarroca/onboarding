@@ -1,12 +1,12 @@
+import { ApolloServer } from 'apollo-server';
 import typeDefs from './types/index';
 import resolvers from './resolvers/index';
-import { ApolloServer } from 'apollo-server';
 import { buildFederatedSchema } from '@apollo/federation';
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
 });
 
-server.listen({ port: process.env.PORT || 8082 }).then(({ url }) => {
-  console.log(`Tweets service running at ${url}`);
+server.listen({ port: process.env.PORT || 8081 }).then(({ url }) => {
+  console.log(`Comments service running at ${url}`);
 });

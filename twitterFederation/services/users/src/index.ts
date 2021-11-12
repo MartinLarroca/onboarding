@@ -7,6 +7,6 @@ const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
 });
 
-server.listen({ port: process.env.PORT || 8082 }).then(({ url }) => {
-  console.log(`Tweets service running at ${url}`);
+server.listen({ port: process.env.PORT || 8083 }).then(({ url }) => {
+  console.log(`Users service running at ${url}`);
 });
