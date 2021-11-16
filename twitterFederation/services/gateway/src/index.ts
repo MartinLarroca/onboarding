@@ -18,7 +18,10 @@ const gateway = new ApolloGateway({
   ],
 });
 
-const server = new ApolloServer({ gateway, context: { prop: 'fafklasjklds' } });
+const server = new ApolloServer({
+  gateway,
+  context: { prop: 'fafklasjklds' },
+});
 
 server.listen({ port: process.env.PORT || 8080 }).then(({ url }) => {
   console.log(`Gateway running at ${url}`);

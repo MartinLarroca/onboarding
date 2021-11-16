@@ -1,13 +1,11 @@
-import Comment from '../models/comment';
+import { Comment } from '../models/comment';
 
 export default {
-  user: async (comment: Comment) => {
-    const result = await Comment.findByPk(comment.id, { raw: true });
-    return { __typename: 'User', id: result.user_id };
+  user: async ({ id }: { id: string }, args: any, context: any) => {
+    return context.CommentsUserReferenceLoader.load(id);
   },
 
-  tweet: async (comment: Comment) => {
-    const result = await Comment.findByPk(comment.id, { raw: true });
-    return { __typename: 'Tweet', id: result.tweet_id };
+  tweet: async ({ id }: { id: string }, args: any, context: any) => {
+    return context.CommentsTweetReferenceLoader.load(id);
   },
 };

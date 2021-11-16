@@ -55,4 +55,5 @@ User.init(user, {
   sequelize: Database.sequelize,
 });
 
-export = User;
+export { User };
+export { UserAttributes as UserInterface };

@@ -1,4 +1,4 @@
-import User from '../models/user';
+import { User } from '../models/user';
 
 export default {
   addUser: async (_: any, data: any) => {

@@ -1,4 +1,4 @@
-import Comment from '../models/comment';
+import { Comment } from '../models/comment';
 
 export default {
   addComment: async (_: any, data: any) => {

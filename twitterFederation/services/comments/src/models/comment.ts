@@ -51,4 +51,4 @@ const comment = {
 
 Comment.init(comment, { modelName: 'Comment', sequelize: Database.sequelize });
 
-export = Comment;
+export { Comment, CommentAttributes as CommentInterface };

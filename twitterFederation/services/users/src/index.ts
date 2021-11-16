@@ -6,9 +6,12 @@ import { buildFederatedSchema } from '@apollo/federation';
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
-  context: ({ req }) => ({
-    usersLoader: usersLoader.create(),
-  }),
+  context: ({ req }) => {
+    console.log(req.protocol);
+    return {
+      usersLoader: usersLoader.create(),
+    };
+  },
 });
 
 server.listen({ port: process.env.PORT || 8083 }).then(({ url }) => {
