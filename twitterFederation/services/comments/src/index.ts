@@ -5,6 +5,7 @@ import { create, DataLoaderType } from './dataloaders/comment';
 import { buildFederatedSchema } from '@apollo/federation';
 
 const server = new ApolloServer({
+  debug: false,
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
   context: ({ req }) => {
     console.log(req.protocol);

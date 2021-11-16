@@ -5,6 +5,7 @@ import { ApolloServer } from 'apollo-server';
 import { buildFederatedSchema } from '@apollo/federation';
 
 const server = new ApolloServer({
+  debug: false,
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
   context: ({ req }) => {
     console.log(req.protocol);

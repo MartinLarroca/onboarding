@@ -1,5 +1,6 @@
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
+import errorHandler from './errors';
 
 const gateway = new ApolloGateway({
   serviceList: [
@@ -20,7 +21,8 @@ const gateway = new ApolloGateway({
 
 const server = new ApolloServer({
   gateway,
-  context: { prop: 'fafklasjklds' },
+  formatError: errorHandler,
+  debug: false,
 });
 
 server.listen({ port: process.env.PORT || 8080 }).then(({ url }) => {
