@@ -6,7 +6,7 @@ const gateway = new ApolloGateway({
   serviceList: [
     {
       name: 'users',
-      url: 'http://localhost:8083',
+      url: 'http://0.0.0.0:8083/users',
     },
     {
       name: 'comments',
