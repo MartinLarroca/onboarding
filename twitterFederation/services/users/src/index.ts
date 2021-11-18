@@ -1,20 +1,14 @@
 import typeDefs from './types/index';
 import resolvers from './resolvers/index';
 import usersLoader from './dataloaders/user';
-import { ApolloServer } from 'apollo-server';
+import { ApolloServer } from 'apollo-server-lambda';
 import { buildFederatedSchema } from '@apollo/federation';
 
 const server = new ApolloServer({
   debug: false,
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
-  context: ({ req }) => {
-    console.log(req.protocol);
-    return {
-      usersLoader: usersLoader.create(),
-    };
+  context: () => {
+    usersLoader: usersLoader.create();
   },
 });
-
-server.listen({ port: process.env.PORT || 8083 }).then(({ url }) => {
-  console.log(`Users service running at ${url}`);
-});
+exports.handler = server.createHandler();
