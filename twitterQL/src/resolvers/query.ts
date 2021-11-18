@@ -5,7 +5,6 @@ import Comment from '../models/comment';
 export default {
   users: async () => {
     const users = await User.findAll({ raw: true });
-    console.log(users);
     return users;
   },
 
@@ -21,7 +20,6 @@ export default {
 
   user: async (_: any, data: any) => {
     const users = await User.findByPk(data.id, { raw: true });
-    console.log(users);
     return users;
   },
 
