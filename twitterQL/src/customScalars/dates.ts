@@ -9,8 +9,7 @@ const resolver = new GraphQLScalarType({
   name: 'Date',
   description: 'Custom Date',
   serialize(value) {
-    console.log('mira como me serializo');
-    return new Date(value).toString();
+    return new Date(value);
   },
 });
 
