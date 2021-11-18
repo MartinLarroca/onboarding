@@ -11,4 +11,5 @@ const server = new ApolloServer({
     usersLoader: usersLoader.create();
   },
 });
+
 exports.handler = server.createHandler();
