@@ -1,4 +1,4 @@
-import { ApolloServer } from 'apollo-server';
+import { ApolloServer } from 'apollo-server-lambda';
 import typeDefs from './types/index';
 import resolvers from './resolvers/index';
 import { create, DataLoaderType } from './dataloaders/comment';
@@ -7,8 +7,7 @@ import { buildFederatedSchema } from '@apollo/federation';
 const server = new ApolloServer({
   debug: false,
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
-  context: ({ req }) => {
-    console.log(req.protocol);
+  context: () => {
     return {
       CommentsGivenUserLoader: create(DataLoaderType.User),
       CommentsGivenTweetLoader: create(DataLoaderType.Tweet),
@@ -18,6 +17,4 @@ const server = new ApolloServer({
   },
 });
 
-server.listen({ port: process.env.PORT || 8081 }).then(({ url }) => {
-  console.log(`Comments service running at ${url}`);
-});
+exports.handler = server.createHandler();
