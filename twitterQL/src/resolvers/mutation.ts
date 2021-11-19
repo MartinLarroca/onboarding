@@ -10,7 +10,7 @@ export default {
   updateUser: async (_: any, data: any) => {
     const { id, ...user_data } = data.user;
     await User.update(user_data, { where: { id } });
-    return await User.findByPk(id, { raw: true });
+    return await User.findByPk(id);
   },
   deleteUser: async (_: any, data: any) => {
     const elim = await User.destroy({ where: { id: data.id } });
@@ -23,7 +23,7 @@ export default {
   updateComment: async (_: any, data: any) => {
     const { id, ...comment_data } = data.comment;
     await Comment.update(comment_data, { where: { id } });
-    return await Comment.findByPk(id, { raw: true });
+    return await Comment.findByPk(id);
   },
   deleteComment: async (_: any, data: any) => {
     const elim = await Comment.destroy({ where: { id: data.id } });
@@ -36,7 +36,7 @@ export default {
   updateTweet: async (_: any, data: any) => {
     const { id, ...tweet_data } = data.tweet;
     await Tweet.update(tweet_data, { where: { id } });
-    return await Tweet.findByPk(id, { raw: true });
+    return await Tweet.findByPk(id);
   },
   deleteTweet: async (_: any, data: any) => {
     const elim = await Tweet.destroy({ where: { id: data.id } });

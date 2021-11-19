@@ -4,12 +4,12 @@ import Comment from '../models/comment';
 
 export default {
   user: async (comment: Comment) => {
-    const user = await User.findByPk(comment.user_id, { raw: true });
+    const user = await User.findByPk(comment.user_id);
     return user;
   },
 
   tweet: async (comment: Comment) => {
-    const tweet = await Tweet.findByPk(comment.tweet_id, { raw: true });
+    const tweet = await Tweet.findByPk(comment.tweet_id);
     return tweet;
   },
 };
