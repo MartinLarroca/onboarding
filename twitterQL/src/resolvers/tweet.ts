@@ -4,10 +4,7 @@ import Comment from '../models/comment';
 
 export default {
   user: async (tweet: Tweet) => {
-    console.log('DSAdasadsadsd');
     const user = await User.findByPk(tweet.user_id, { raw: true });
-    console.log(user);
-    console.log('dasdasadsdasadsads');
     return user;
   },
 
