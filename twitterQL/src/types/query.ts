@@ -5,5 +5,8 @@ export default gql`
     users: [User]
     tweets: [Tweet]
     comments: [Comment]
+    user(userId: String!): User
+    comment(commentId: Int!): Comment
+    tweet(tweetId: Int!): Tweet
   }
 `;

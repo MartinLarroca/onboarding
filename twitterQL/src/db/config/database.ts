@@ -14,4 +14,6 @@ const sequelize = new Sequelize(
 
 const Database: any = { sequelize: sequelize };
 
+sequelize.sync;
+
 export default Database;

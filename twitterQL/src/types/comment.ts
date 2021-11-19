@@ -8,5 +8,7 @@ export default gql`
     comment: String!
     createdAt: Date
     updatedAt: Date
+    tweet: Tweet
+    user: User
   }
 `;

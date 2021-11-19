@@ -8,5 +8,7 @@ export default gql`
     email: String!
     createdAt: Date
     updatedAt: Date
+    comments: [Comment]
+    tweets: [Tweet]
   }
 `;
