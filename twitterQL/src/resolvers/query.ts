@@ -4,32 +4,26 @@ import Comment from '../models/comment';
 
 export default {
   users: async () => {
-    const users = await User.findAll();
-    return users;
+    return await User.findAll();
   },
 
   tweets: async () => {
-    const tweets = await Tweet.findAll();
-    return tweets;
+    return await Tweet.findAll();
   },
 
   comments: async () => {
-    const comments = await Comment.findAll();
-    return comments;
+    return await Comment.findAll();
   },
 
   user: async (_: any, data: any) => {
-    const users = await User.findByPk(data.id);
-    return users;
+    return await User.findByPk(data.id);
   },
 
   tweet: async (_: any, data: any) => {
-    const tweets = await Tweet.findByPk(data.id);
-    return tweets;
+    return await Tweet.findByPk(data.id);
   },
 
   comment: async (_: any, data: any) => {
-    const comments = await Comment.findByPk(data.id);
-    return comments;
+    return await Comment.findByPk(data.id);
   },
 };
