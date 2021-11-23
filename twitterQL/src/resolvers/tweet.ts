@@ -4,15 +4,12 @@ import Comment from '../models/comment';
 
 export default {
   user: async (tweet: Tweet) => {
-    const user = await User.findByPk(tweet.user_id, { raw: true });
-    return user;
+    return await User.findByPk(tweet.user_id);
   },
 
   comments: async (tweet: Tweet) => {
-    const comments = await Comment.findAll({
+    return await Comment.findAll({
       where: { tweet_id: tweet.id },
-      raw: true,
     });
-    return comments;
   },
 };
