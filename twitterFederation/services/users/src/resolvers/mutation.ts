@@ -8,7 +8,7 @@ export default {
   updateUser: async (_: any, data: any) => {
     const { id, ...user_data } = data.user;
     await User.update(user_data, { where: { id } });
-    return await User.findByPk(id, { raw: true });
+    return await User.findByPk(id);
   },
   deleteUser: async (_: any, data: any) => {
     const elim = await User.destroy({ where: { id: data.id } });

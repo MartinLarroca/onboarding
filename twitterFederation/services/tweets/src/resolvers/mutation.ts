@@ -7,7 +7,7 @@ export default {
   updateTweet: async (_: any, data: any) => {
     const { id, ...tweet_data } = data.tweet;
     await Tweet.update(tweet_data, { where: { id } });
-    return await Tweet.findByPk(id, { raw: true });
+    return await Tweet.findByPk(id);
   },
   deleteTweet: async (_: any, data: any) => {
     return await Tweet.destroy({ where: { id: data.id } });
