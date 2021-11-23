@@ -11,4 +11,17 @@ export default gql`
     comments: [Comment]
     tweets: [Tweet]
   }
+
+  input CreateUserInput {
+    name: String!
+    surname: String!
+    email: String!
+  }
+
+  input UpdateUserInput {
+    id: ID!
+    name: String
+    surname: String
+    email: String
+  }
 `;

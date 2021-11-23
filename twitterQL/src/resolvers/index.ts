@@ -2,6 +2,7 @@ import QueryResolver from './query';
 import UserResolver from './user';
 import TweetResolver from './tweet';
 import CommentResolver from './comment';
+import MutationResolver from './mutation';
 import Date from '../customScalars/dates';
 
 const Resolvers = {
@@ -10,6 +11,7 @@ const Resolvers = {
   User: UserResolver,
   Tweet: TweetResolver,
   Comment: CommentResolver,
+  Mutation: MutationResolver,
 };
 
 export default Resolvers;
