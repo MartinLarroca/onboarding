@@ -15,6 +15,6 @@ export default gql`
   type Mutation {
     addComment(comment: CreateCommentInput): Comment
     updateComment(comment: UpdateCommentInput): Comment
-    deleteComment(id: ID!): ID
+    deleteComment(id: ID!): Comment
   }
 `;

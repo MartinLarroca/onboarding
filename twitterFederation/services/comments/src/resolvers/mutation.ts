@@ -1,15 +1,15 @@
 import Comment from '../models/comment';
 
 export default {
-  addComment: async (_: any, data: any) => await Comment.create(data.comment),
+  addComment: async (_: any, { comment }: any) => await Comment.create(comment),
 
-  updateComment: async (_: any, data: any) => {
-    const { id, ...comment_data } = data.comment;
-    await Comment.update(comment_data, { where: { id } });
-    return await Comment.findByPk(id);
+  updateComment: async (_: any, { com: { id, ...data } }: { com: any }) => {
+    const comment = await Comment.findByPk(id);
+    return await comment.update(data);
   },
-  deleteComment: async (_: any, data: any) => {
-    const elim = await Comment.destroy({ where: { id: data.id } });
-    return data.id;
+
+  deleteComment: async (_: any, { id }: any) => {
+    const comment = await Comment.findByPk(id);
+    return await comment.destroy();
   },
 };
