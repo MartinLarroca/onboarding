@@ -11,15 +11,4 @@ export default gql`
     tweet: Tweet
     user: User
   }
-
-  input CreateCommentInput {
-    userId: ID!
-    tweetId: ID!
-    comment: String!
-  }
-
-  input UpdateCommentInput {
-    id: ID!
-    comment: String!
-  }
 `;

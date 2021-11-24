@@ -9,14 +9,4 @@ export default gql`
     updatedAt: Date
     user: User
   }
-
-  input CreateTweetInput {
-    userId: ID!
-    text: String!
-  }
-
-  input UpdateTweetInput {
-    id: ID!
-    text: String!
-  }
 `;
