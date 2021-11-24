@@ -7,13 +7,4 @@ module.exports = {
     });
     await queryInterface.bulkInsert('tweets', tweets);
   },
-
-  down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  },
 };
