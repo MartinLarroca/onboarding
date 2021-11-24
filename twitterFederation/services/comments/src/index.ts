@@ -1,7 +1,10 @@
 import { ApolloServer } from 'apollo-server';
 import typeDefs from './types/index';
 import resolvers from './resolvers/index';
+import dotenv from 'dotenv';
 import { buildFederatedSchema } from '@apollo/federation';
+
+dotenv.config();
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),

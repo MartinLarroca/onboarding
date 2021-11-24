@@ -6,8 +6,6 @@ export default {
     return { __typename: 'User', id: result.user_id };
   },
 
-  __resolveReference: async ({ id }: { id: string }) => {
-    console.log(id);
-    return await Tweet.findByPk(id);
-  },
+  __resolveReference: async ({ id }: { id: string }) =>
+    await Tweet.findByPk(id),
 };
