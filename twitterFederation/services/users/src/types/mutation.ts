@@ -4,6 +4,6 @@ export default gql`
   extend type Mutation {
     addUser(user: CreateUserInput): User
     updateUser(user: UpdateUserInput): User
-    deleteUser(id: String): String
+    deleteUser(id: ID!): ID
   }
 `;
