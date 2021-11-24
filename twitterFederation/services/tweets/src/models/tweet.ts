@@ -7,7 +7,7 @@ interface TweetAttributes {
   text: string;
   createdAt: Date;
   updatedAt: Date;
-  user_id: string;
+  userId: string;
 }
 
 class Tweet extends Model<TweetAttributes> implements TweetAttributes {
@@ -15,7 +15,7 @@ class Tweet extends Model<TweetAttributes> implements TweetAttributes {
   text!: string;
   createdAt: Date;
   updatedAt: Date;
-  user_id: string;
+  userId: string;
 }
 
 const tweet = {
@@ -29,7 +29,7 @@ const tweet = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  user_id: {
+  userId: {
     type: DataTypes.UUID,
     allowNull: false,
   },

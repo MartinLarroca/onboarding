@@ -7,8 +7,8 @@ interface CommentAttributes {
   comment: string;
   createdAt: Date;
   updatedAt: Date;
-  user_id: string;
-  tweet_id: number;
+  userId: string;
+  tweetId: number;
 }
 
 class Comment extends Model<CommentAttributes> implements CommentAttributes {
@@ -16,8 +16,8 @@ class Comment extends Model<CommentAttributes> implements CommentAttributes {
   comment!: string;
   createdAt: Date;
   updatedAt: Date;
-  user_id: string;
-  tweet_id: number;
+  userId: string;
+  tweetId: number;
 }
 
 const comment = {
@@ -31,11 +31,11 @@ const comment = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  user_id: {
+  userId: {
     type: DataTypes.UUID,
     allowNull: false,
   },
-  tweet_id: {
+  tweetId: {
     type: DataTypes.INTEGER.UNSIGNED,
     allowNull: false,
   },
