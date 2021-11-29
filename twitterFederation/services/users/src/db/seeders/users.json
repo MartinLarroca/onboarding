@@ -1,0 +1,32 @@
+[
+  {
+    "id": "29cb1eee-e27e-44a9-8a7d-b673e0aad470",
+    "name": "Martin",
+    "surname": "Larroca",
+    "email": "martinlarrocafranco@gmail.com"
+  },
+  {
+    "id": "1056500d-4c22-4093-a622-6a542c4b40a1",
+    "name": "Ayelen",
+    "surname": "Diaz",
+    "email": "adiaz@gmail.com"
+  },
+  {
+    "id": "ba9955ac-50dc-49cc-b8ff-bb3660cd464f",
+    "name": "Lucas",
+    "surname": "Fontes",
+    "email": "lfontes007@gmail.com"
+  },
+  {
+    "id": "564ee2a2-a4a6-456e-b12e-a6ac0ed1f643",
+    "name": "Alfonso",
+    "surname": "Perez",
+    "email": "alf17@gmail.com"
+  },
+  {
+    "id": "ce18001d-6517-4521-a937-a69f5bad9270",
+    "name": "Manuel",
+    "surname": "Chancleta",
+    "email": "mchancleta@gmail.com"
+  }
+]
