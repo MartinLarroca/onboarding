@@ -1,5 +1,3 @@
-import { Tweet } from '../models/tweet';
-
 export default {
   user: async ({ id }: { id: string }, args: any, context: any) => {
     return await context.TweetsUserReferenceLoader.load(id);

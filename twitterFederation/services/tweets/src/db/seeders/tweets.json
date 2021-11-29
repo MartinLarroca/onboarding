@@ -1,22 +1,22 @@
 [
   {
     "text": "first tweet",
-    "user_id": "29cb1eee-e27e-44a9-8a7d-b673e0aad470"
+    "userId": "29cb1eee-e27e-44a9-8a7d-b673e0aad470"
   },
   {
     "text": "second tweet",
-    "user_id": "29cb1eee-e27e-44a9-8a7d-b673e0aad470"
+    "userId": "29cb1eee-e27e-44a9-8a7d-b673e0aad470"
   },
   {
     "text": "ta nublado",
-    "user_id": "1056500d-4c22-4093-a622-6a542c4b40a1"
+    "userId": "1056500d-4c22-4093-a622-6a542c4b40a1"
   },
   {
     "text": "great day",
-    "user_id": "564ee2a2-a4a6-456e-b12e-a6ac0ed1f643"
+    "userId": "564ee2a2-a4a6-456e-b12e-a6ac0ed1f643"
   },
   {
     "text": "eating",
-    "user_id": "564ee2a2-a4a6-456e-b12e-a6ac0ed1f643"
+    "userId": "564ee2a2-a4a6-456e-b12e-a6ac0ed1f643"
   }
 ]

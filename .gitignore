@@ -5,14 +5,8 @@ accounts
 apolloQL
 twitterQL/dist
 twitterQL/node_modules
-
-twitterFederation/services/comments/dist
-
-twitterFederation/services/users/dist
-
-twitterFederation/services/tweets/dist
-
-twitterFederation/services/gateway/dist
+graphql-backend-develop
 
 node_modules/
-
+dist/
+.env

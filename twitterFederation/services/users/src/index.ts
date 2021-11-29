@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 import typeDefs from './types/index';
 import resolvers from './resolvers/index';
 import usersLoader from './dataloaders/user';

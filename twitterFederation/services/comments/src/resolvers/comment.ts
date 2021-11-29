@@ -1,5 +1,3 @@
-import { Comment } from '../models/comment';
-
 export default {
   user: async ({ id }: { id: string }, args: any, context: any) => {
     return context.CommentsUserReferenceLoader.load(id);

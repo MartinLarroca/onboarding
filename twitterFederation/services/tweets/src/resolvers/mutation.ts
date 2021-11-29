@@ -1,15 +1,15 @@
 import { Tweet } from '../models/tweet';
 
 export default {
-  addTweet: async (_: any, data: any) => {
-    return await Tweet.create(data.tweet);
+  addTweet: async (_: any, { tweet }: any) => await Tweet.create(tweet),
+
+  updateTweet: async (_: any, { tweet: { id, ...data } }: { tweet: any }) => {
+    const tweet = await Tweet.findByPk(id);
+    return await tweet.update(data);
   },
-  updateTweet: async (_: any, data: any) => {
-    const { id, ...tweet_data } = data.tweet;
-    await Tweet.update(tweet_data, { where: { id } });
-    return await Tweet.findByPk(id, { raw: true });
-  },
-  deleteTweet: async (_: any, data: any) => {
-    return await Tweet.destroy({ where: { id: data.id } });
+
+  deleteTweet: async (_: any, { id }: any) => {
+    const tweet = await Tweet.findByPk(id);
+    return await tweet.destroy();
   },
 };

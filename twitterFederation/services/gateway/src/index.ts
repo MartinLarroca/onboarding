@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
+
+dotenv.config();
 
 const gateway = new ApolloGateway({
   serviceList: [
