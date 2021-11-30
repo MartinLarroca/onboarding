@@ -10,8 +10,7 @@ import { buildFederatedSchema } from '@apollo/federation';
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
-  context: ({ req }) => {
-    console.log(req.protocol);
+  context: () => {
     return {
       usersLoader: usersLoader.create(),
     };

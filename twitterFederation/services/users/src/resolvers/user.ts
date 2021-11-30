@@ -1,5 +1,4 @@
 export default {
-  __resolveReference: ({ id }: { id: string }, context: any) => {
-    return context.usersLoader.load(id);
-  },
+  __resolveReference: ({ id }: { id: string }, context: any) =>
+    context.usersLoader.load(id),
 };
