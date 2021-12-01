@@ -2,7 +2,7 @@ import { groupBy } from 'ramda';
 import DataLoader from 'dataloader';
 import { User } from '../models/user';
 
-const usersByIds: any = async (ids: string[]) => {
+const usersByIds = async (ids: string[]) => {
   const users = await User.findAll({ where: { id: ids } });
   const groupedUsers = groupBy((user) => user.id, users);
   return ids.map((id) => groupedUsers[id][0]);

@@ -9,7 +9,7 @@ enum DataLoaderType {
   TweetReference,
 }
 
-const commentsByUsersIds: any = async (ids: string[]) => {
+const commentsByUsersIds = async (ids: string[]) => {
   const comments = await Comment.findAll({ where: { userId: ids } });
   const groupedComments = groupBy((elem) => elem.userId, comments);
   return ids.map((id) =>
@@ -17,7 +17,7 @@ const commentsByUsersIds: any = async (ids: string[]) => {
   );
 };
 
-const commentsByTweetsIds: any = async (ids: string[]) => {
+const commentsByTweetsIds = async (ids: string[]) => {
   const comments = await Comment.findAll({ where: { tweetId: ids } });
   const groupedComments = groupBy((elem) => elem.tweetId.toString(), comments);
   return ids.map((id) =>
@@ -25,7 +25,7 @@ const commentsByTweetsIds: any = async (ids: string[]) => {
   );
 };
 
-const commentsUserReference: any = async (ids: string[]) => {
+const commentsUserReference = async (ids: string[]) => {
   const comments = await Comment.findAll({ where: { id: ids } });
   const groupedComments = groupBy((elem) => elem.tweetId.toString(), comments);
   return ids.map((id) => {
@@ -33,7 +33,7 @@ const commentsUserReference: any = async (ids: string[]) => {
   });
 };
 
-const commentsTweetReference: any = async (ids: string[]) => {
+const commentsTweetReference = async (ids: string[]) => {
   const comments = await Comment.findAll({ where: { id: ids } });
   const groupedComments = groupBy((elem) => elem.tweetId.toString(), comments);
   return ids.map((id) => {
