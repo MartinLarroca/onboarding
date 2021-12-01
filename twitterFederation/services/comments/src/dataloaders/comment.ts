@@ -28,17 +28,19 @@ const commentsByTweetsIds = async (ids: string[]) => {
 const commentsUserReference = async (ids: string[]) => {
   const comments = await Comment.findAll({ where: { id: ids } });
   const groupedComments = groupBy((elem) => elem.tweetId.toString(), comments);
-  return ids.map((id) => {
-    return { __typename: 'User', id: groupedComments[id][0].userId };
-  });
+  return ids.map((id) => ({
+    __typename: 'User',
+    id: groupedComments[id][0].userId,
+  }));
 };
 
 const commentsTweetReference = async (ids: string[]) => {
   const comments = await Comment.findAll({ where: { id: ids } });
   const groupedComments = groupBy((elem) => elem.tweetId.toString(), comments);
-  return ids.map((id) => {
-    return { __typename: 'Tweet', id: groupedComments[id][0].tweetId };
-  });
+  return ids.map((id) => ({
+    __typename: 'Tweet',
+    id: groupedComments[id][0].tweetId,
+  }));
 };
 
 const create = (value: DataLoaderType) => {

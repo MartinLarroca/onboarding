@@ -23,9 +23,10 @@ const tweetsByUsersIds = async (ids: string[]) => {
 const tweetsUserReference = async (ids: string[]) => {
   const tweets = await Tweet.findAll({ where: { id: ids } });
   const groupedTweets = groupBy((elem) => elem.id.toString(), tweets);
-  return ids.map((id) => {
-    return { __typename: 'User', id: groupedTweets[id][0].userId };
-  });
+  return ids.map((id) => ({
+    __typename: 'User',
+    id: groupedTweets[id][0].userId,
+  }));
 };
 
 const create = (value: DataLoaderType) => {
