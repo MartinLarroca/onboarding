@@ -10,6 +10,7 @@ twitterFederation/services/comments/node_modules
 twitterFederation/services/comments/dist
 twitterFederation/services/users/node_modules
 twitterFederation/services/users/dist
+twitterFederation/services/tweets/node_modules
 twitterFederation/services/tweets/dist
 twitterFederation/services/gateway/node_modules
 twitterFederation/services/gateway/dist
