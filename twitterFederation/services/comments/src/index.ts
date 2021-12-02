@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-import { ApolloServer } from 'apollo-server';
+import { ApolloServer } from 'apollo-server-lambda';
 import { Context } from './interfaces/context';
 import typeDefs from './types/index';
 import resolvers from './resolvers/index';
@@ -21,6 +21,4 @@ const server = new ApolloServer({
   },
 });
 
-server.listen({ port: process.env.PORT || 8081 }).then(({ url }) => {
-  console.log(`Comments service running at ${url}`);
-});
+exports.handler = server.createHandler();

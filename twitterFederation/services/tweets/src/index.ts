@@ -5,7 +5,7 @@ dotenv.config();
 import typeDefs from './types/index';
 import resolvers from './resolvers/index';
 import { create, DataLoaderType } from './dataloaders/tweet';
-import { ApolloServer } from 'apollo-server';
+import { ApolloServer } from 'apollo-server-lambda';
 import { buildFederatedSchema } from '@apollo/federation';
 import { Context } from './interfaces/context';
 
@@ -20,6 +20,4 @@ const server = new ApolloServer({
   },
 });
 
-server.listen({ port: process.env.PORT || 8082 }).then(({ url }) => {
-  console.log(`Tweets service running at ${url}`);
-});
+exports.handler = server.createHandler();

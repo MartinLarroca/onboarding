@@ -10,3 +10,4 @@ graphql-backend-develop
 node_modules/
 dist/
 .env
+.build
