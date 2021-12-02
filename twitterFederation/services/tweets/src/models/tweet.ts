@@ -45,4 +45,4 @@ const tweet = {
 
 Tweet.init(tweet, { modelName: 'Tweet', sequelize: Database.sequelize });
 
-export = Tweet;
+export { Tweet, TweetAttributes as TweetInterface };

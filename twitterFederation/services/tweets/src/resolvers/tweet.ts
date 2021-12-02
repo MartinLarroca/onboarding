@@ -1,11 +1,9 @@
-import Tweet from '../models/tweet';
+import { Context } from '../interfaces/context';
 
 export default {
-  user: async (tweet: Tweet) => {
-    const { userId } = await Tweet.findByPk(tweet.id);
-    return { __typename: 'User', id: userId };
-  },
+  user: async ({ id }: { id: string }, args: any, context: Context) =>
+    context.TweetsUserReferenceLoader.load(id),
 
-  __resolveReference: async ({ id }: { id: string }) =>
-    await Tweet.findByPk(id),
+  __resolveReference: ({ id }: { id: string }, context: Context) =>
+    context.ResolveReferenceLoader.load(id),
 };

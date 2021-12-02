@@ -4,11 +4,18 @@ dotenv.config();
 
 import typeDefs from './types/index';
 import resolvers from './resolvers/index';
+import usersLoader from './dataloaders/user';
 import { ApolloServer } from 'apollo-server';
 import { buildFederatedSchema } from '@apollo/federation';
+import { Context } from './interfaces/context';
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
+  context: (): Context => {
+    return {
+      usersLoader: usersLoader.create(),
+    };
+  },
 });
 
 server.listen({ port: process.env.PORT || 8083 }).then(({ url }) => {

@@ -1,8 +1,6 @@
-import Comment from '../models/comment';
+import { Context } from '../interfaces/context';
 
 export default {
-  comments: async ({ __typename, id }: { __typename: string; id: string }) =>
-    await Comment.findAll({
-      where: { tweetId: id },
-    }),
+  comments: async ({ id }: { id: string }, args: any, context: Context) =>
+    context.CommentsGivenTweetLoader.load(id),
 };

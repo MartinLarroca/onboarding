@@ -1,8 +1,6 @@
-import Tweet from '../models/tweet';
+import { Context } from '../interfaces/context';
 
 export default {
-  tweets: async ({ __typename, id }: { __typename: string; id: string }) =>
-    await Tweet.findAll({
-      where: { userId: id },
-    }),
+  tweets: async ({ id }: { id: string }, args: any, context: Context) =>
+    context.TweetsGivenUserLoader.load(id),
 };

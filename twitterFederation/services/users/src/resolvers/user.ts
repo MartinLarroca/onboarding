@@ -1,5 +1,6 @@
-import User from '../models/user';
+import { Context } from '../interfaces/context';
 
 export default {
-  __resolveReference: async ({ id }: { id: string }) => await User.findByPk(id),
+  __resolveReference: ({ id }: { id: string }, context: Context) =>
+    context.usersLoader.load(id),
 };

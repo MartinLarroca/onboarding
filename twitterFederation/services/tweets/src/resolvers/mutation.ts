@@ -1,4 +1,4 @@
-import Tweet from '../models/tweet';
+import { Tweet } from '../models/tweet';
 
 export default {
   addTweet: async (_: any, { tweet }: any) => await Tweet.create(tweet),

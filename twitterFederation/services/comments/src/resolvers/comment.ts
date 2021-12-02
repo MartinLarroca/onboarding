@@ -1,13 +1,9 @@
-import Comment from '../models/comment';
+import { Context } from '../interfaces/context';
 
 export default {
-  user: async (comment: Comment) => {
-    const { userId } = await Comment.findByPk(comment.id);
-    return { __typename: 'User', id: userId };
-  },
+  user: async ({ id }: { id: string }, args: any, context: Context) =>
+    context.CommentsUserReferenceLoader.load(id),
 
-  tweet: async (comment: Comment) => {
-    const { tweetId } = await Comment.findByPk(comment.id);
-    return { __typename: 'Tweet', id: tweetId };
-  },
+  tweet: async ({ id }: { id: string }, args: any, context: Context) =>
+    context.CommentsTweetReferenceLoader.load(id),
 };
