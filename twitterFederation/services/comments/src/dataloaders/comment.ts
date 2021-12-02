@@ -34,8 +34,6 @@ const commentsUserReference = async (ids: string[]) => {
   }));
 };
 
-// quiero agarrar los comments y devolver sus tweets pa que resuelva la referencia
-
 const commentsTweetReference = async (ids: string[]) => {
   const comments = await Comment.findAll({ where: { id: ids } });
   const groupedComments = groupBy((elem) => elem.id.toString(), comments);
