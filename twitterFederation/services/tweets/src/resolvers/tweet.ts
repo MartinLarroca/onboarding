@@ -1,11 +1,9 @@
-import { Tweet } from '../models/tweet';
+import { Context } from '../interfaces/context';
 
 export default {
-  user: async ({ id }: { id: string }, args: any, context: any) => {
-    return await context.TweetsUserReferenceLoader.load(id);
-  },
+  user: async ({ id }: { id: string }, args: any, context: Context) =>
+    context.TweetsUserReferenceLoader.load(id),
 
-  __resolveReference: ({ id }: { id: string }, context: any) => {
-    return context.ResolveReferenceLoader.load(id);
-  },
+  __resolveReference: ({ id }: { id: string }, context: Context) =>
+    context.ResolveReferenceLoader.load(id),
 };

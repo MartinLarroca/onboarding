@@ -1,6 +1,6 @@
 import { groupBy } from 'ramda';
 import DataLoader from 'dataloader';
-import { TweetInterface, Tweet } from '../models/tweet';
+import { Tweet } from '../models/tweet';
 
 enum DataLoaderType {
   User,
@@ -8,33 +8,25 @@ enum DataLoaderType {
   UserReference,
 }
 
-const tweetsByIds: any = async (ids: string[]) => {
-  const tweets = await Tweet.findAll({ where: { id: ids }, raw: true });
+const tweetsByIds = async (ids: string[]) => {
+  const tweets = await Tweet.findAll({ where: { id: ids } });
   const groupedTweets = groupBy((tweet) => tweet.id.toString(), tweets);
-  const result: TweetInterface[] = [];
-  ids.forEach((id) => result.push(groupedTweets[id.toString()][0]));
-  return result;
+  return ids.map((id) => groupedTweets[id.toString()][0]);
 };
 
-const tweetsByUsersIds: any = async (ids: string[]) => {
-  const tweets = await Tweet.findAll({ where: { user_id: ids }, raw: true });
-  const groupedTweets = groupBy((tweet) => tweet.user_id, tweets);
-  const result: TweetInterface[][] = [];
-  ids.forEach((id) => result.push(groupedTweets[id]));
-  return result;
+const tweetsByUsersIds = async (ids: string[]) => {
+  const tweets = await Tweet.findAll({ where: { userId: ids } });
+  const groupedTweets = groupBy((tweet) => tweet.userId, tweets);
+  return ids.map((id) => (groupedTweets[id] == null ? [] : groupedTweets[id]));
 };
 
-const tweetsUserReference: any = async (ids: string[]) => {
-  const result: any = [];
-  const tweets = await Tweet.findAll({
-    where: { id: ids },
-    raw: true,
-  });
+const tweetsUserReference = async (ids: string[]) => {
+  const tweets = await Tweet.findAll({ where: { id: ids } });
   const groupedTweets = groupBy((elem) => elem.id.toString(), tweets);
-  ids.forEach((id) =>
-    result.push({ __typename: 'User', id: groupedTweets[id][0].user_id })
-  );
-  return result;
+  return ids.map((id) => ({
+    __typename: 'User',
+    id: groupedTweets[id][0].userId,
+  }));
 };
 
 const create = (value: DataLoaderType) => {

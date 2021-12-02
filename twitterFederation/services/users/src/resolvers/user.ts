@@ -1,5 +1,6 @@
+import { Context } from '../interfaces/context';
+
 export default {
-  __resolveReference: ({ id }: { id: string }, context: any) => {
-    return context.usersLoader.load(id);
-  },
+  __resolveReference: ({ id }: { id: string }, context: Context) =>
+    context.usersLoader.load(id),
 };

@@ -1,6 +1,6 @@
 import { groupBy } from 'ramda';
 import DataLoader from 'dataloader';
-import { CommentInterface, Comment } from '../models/comment';
+import { Comment } from '../models/comment';
 
 enum DataLoaderType {
   User,
@@ -9,52 +9,38 @@ enum DataLoaderType {
   TweetReference,
 }
 
-const commentsByUsersIds: any = async (ids: string[]) => {
-  const comments = await Comment.findAll({
-    where: { user_id: ids },
-    raw: true,
-  });
-  const groupedComments = groupBy((elem) => elem.user_id, comments);
-  const result: CommentInterface[][] = [];
-  ids.forEach((id) => result.push(groupedComments[id]));
-  return result;
-};
-
-const commentsByTweetsIds: any = async (ids: string[]) => {
-  const comments = await Comment.findAll({
-    where: { tweet_id: ids },
-    raw: true,
-  });
-  const groupedComments = groupBy((elem) => elem.tweet_id.toString(), comments);
-  const result: CommentInterface[][] = [];
-  ids.forEach((id) => result.push(groupedComments[id]));
-  return result;
-};
-
-const commentsUserReference: any = async (ids: string[]) => {
-  const result: any = [];
-  const comments = await Comment.findAll({
-    where: { id: ids },
-    raw: true,
-  });
-  const groupedComments = groupBy((elem) => elem.tweet_id.toString(), comments);
-  ids.forEach((id) =>
-    result.push({ __typename: 'User', id: groupedComments[id][0].user_id })
+const commentsByUsersIds = async (ids: string[]) => {
+  const comments = await Comment.findAll({ where: { userId: ids } });
+  const groupedComments = groupBy((elem) => elem.userId, comments);
+  return ids.map((id) =>
+    groupedComments[id] == null ? [] : groupedComments[id]
   );
-  return result;
 };
 
-const commentsTweetReference: any = async (ids: string[]) => {
-  const result: any = [];
-  const comments = await Comment.findAll({
-    where: { id: ids },
-    raw: true,
-  });
-  const groupedComments = groupBy((elem) => elem.tweet_id.toString(), comments);
-  ids.forEach((id) =>
-    result.push({ __typename: 'Tweet', id: groupedComments[id][0].tweet_id })
+const commentsByTweetsIds = async (ids: string[]) => {
+  const comments = await Comment.findAll({ where: { tweetId: ids } });
+  const groupedComments = groupBy((elem) => elem.tweetId.toString(), comments);
+  return ids.map((id) =>
+    groupedComments[id] == null ? [] : groupedComments[id]
   );
-  return result;
+};
+
+const commentsUserReference = async (ids: string[]) => {
+  const comments = await Comment.findAll({ where: { id: ids } });
+  const groupedComments = groupBy((elem) => elem.id.toString(), comments);
+  return ids.map((id) => ({
+    __typename: 'User',
+    id: groupedComments[id][0].userId,
+  }));
+};
+
+const commentsTweetReference = async (ids: string[]) => {
+  const comments = await Comment.findAll({ where: { id: ids } });
+  const groupedComments = groupBy((elem) => elem.id.toString(), comments);
+  return ids.map((id) => ({
+    __typename: 'Tweet',
+    id: groupedComments[id][0].tweetId,
+  }));
 };
 
 const create = (value: DataLoaderType) => {

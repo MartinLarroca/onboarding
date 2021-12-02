@@ -1,12 +1,8 @@
 import { Comment } from '../models/comment';
+import { Context } from '../interfaces/context';
 
 export default {
-  comments: async () => {
-    const comments = await Comment.findAll({ raw: true });
-    return comments;
-  },
-  comment: async (parent: any, args: any, context: any) => {
-    const comments = await Comment.findByPk(args.id, { raw: true });
-    return comments;
-  },
+  comments: async () => await Comment.findAll(),
+  comment: async (parent: any, args: any, context: Context) =>
+    await Comment.findByPk(args.id),
 };

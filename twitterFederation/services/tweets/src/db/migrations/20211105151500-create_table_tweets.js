@@ -11,7 +11,7 @@ module.exports = {
         type: Sequelize.DataTypes.STRING,
         allowNull: false,
       },
-      user_id: {
+      userId: {
         type: Sequelize.DataTypes.UUID,
         allowNull: false,
       },

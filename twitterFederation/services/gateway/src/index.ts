@@ -1,6 +1,8 @@
+import dotenv from 'dotenv';
 import { ApolloServer } from 'apollo-server';
 import { ApolloGateway } from '@apollo/gateway';
-import errorHandler from './errors';
+
+dotenv.config();
 
 const gateway = new ApolloGateway({
   serviceList: [
@@ -19,11 +21,7 @@ const gateway = new ApolloGateway({
   ],
 });
 
-const server = new ApolloServer({
-  gateway,
-  formatError: errorHandler,
-  debug: false,
-});
+const server = new ApolloServer({ gateway });
 
 server.listen({ port: process.env.PORT || 8080 }).then(({ url }) => {
   console.log(`Gateway running at ${url}`);

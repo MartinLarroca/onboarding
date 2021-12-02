@@ -1,17 +1,17 @@
 [
   {
     "comment": "great tweet",
-    "user_id": "29cb1eee-e27e-44a9-8a7d-b673e0aad470",
-    "tweet_id": 1
+    "userId": "29cb1eee-e27e-44a9-8a7d-b673e0aad470",
+    "tweetId": 1
   },
   {
     "comment": "another great tweet",
-    "user_id": "29cb1eee-e27e-44a9-8a7d-b673e0aad470",
-    "tweet_id": 2
+    "userId": "29cb1eee-e27e-44a9-8a7d-b673e0aad470",
+    "tweetId": 2
   },
   {
     "comment": "excelent",
-    "user_id": "ce18001d-6517-4521-a937-a69f5bad9270",
-    "tweet_id": 3
+    "userId": "ce18001d-6517-4521-a937-a69f5bad9270",
+    "tweetId": 3
   }
 ]
