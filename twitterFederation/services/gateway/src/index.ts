@@ -14,10 +14,10 @@ const gateway = new ApolloGateway({
       name: 'comments',
       url: 'http://0.0.0.0:8081',
     },
-    {
-      name: 'tweets',
-      url: 'http://0.0.0.0:8084',
-    },
+    // {
+    //   name: 'tweets',
+    //   url: 'http://0.0.0.0:8084',
+    // },
   ],
 });
 
