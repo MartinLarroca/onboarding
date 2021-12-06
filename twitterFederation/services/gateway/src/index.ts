@@ -8,15 +8,15 @@ const gateway = new ApolloGateway({
   serviceList: [
     {
       name: 'users',
-      url: 'http://localhost:8083',
+      url: 'http://0.0.0.0:8081',
     },
     {
       name: 'comments',
-      url: 'http://localhost:8081',
+      url: 'http://0.0.0.0:8083',
     },
     {
       name: 'tweets',
-      url: 'http://localhost:8084',
+      url: 'http://0.0.0.0:8082',
     },
   ],
 });
